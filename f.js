@@ -19,7 +19,7 @@ var altura = tdAltura.textContent;
 
 //calcula o imc
 var imc = peso/ (altura*altura);
-
+imc = imc.toFixed(2);
 //variaveis com valor true
 var pesoValido = true ;
 var alturaValida = true; 
@@ -32,6 +32,7 @@ tdImc.textContent = imc;
 if(peso <= 0 || peso >= 1000){
 var pesoValido = false;
 tdImc.textContent = "peso invalido";
+paciente.style.backgroundColor = "red";
 }
 if(altura < 0 || altura > 3.00){
    
