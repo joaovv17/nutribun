@@ -13,6 +13,8 @@ var pacienteTr = criarTr(paciente);
 var tabela = document.querySelector("#tabela-pacientes");
 tabela.appendChild(pacienteTr);
 
+formulario.reset();
+
 });
 
 function buscaValoresFormulario(formulario){
@@ -32,31 +34,23 @@ function criarTr(paciente){
 
 //é pra criar a tag tr da tabela 
 var pacienteTr = document.createElement("tr");
+pacienteTr.classList.add("paciente");
 
-//é pra criar a tag td da tabela 
-var nomeTd = document.createElement("td");
-var pesoTd = document.createElement("td");
-var alturaTd = document.createElement("td");
-var gorduraTd = document.createElement("td");
-var imcTd = document.createElement("td");
+// cria as tag td
+pacienteTr.appendChild(criarTd(paciente.nome, "info-nome"));
+pacienteTr.appendChild(criarTd(paciente.peso, "info-peso"));
+pacienteTr.appendChild(criarTd(paciente.altura, "info-altura"));
+pacienteTr.appendChild(criarTd(paciente.gordura, "info-gordura"));
+pacienteTr.appendChild(criarTd(paciente.imc, "info-imc"));
 
 
-
-
-//adiciona os valores
-nomeTd.textContent = paciente.nome;
-pesoTd.textContent = paciente.peso;
-alturaTd.textContent = paciente.altura;
-gorduraTd.textContent = paciente.gordura;
-imcTd.textContent = paciente.imc;
-
-//aiciona o conteudo
-pacienteTr.appendChild(nomeTd);
-pacienteTr.appendChild(pesoTd);
-pacienteTr.appendChild(alturaTd);
-pacienteTr.appendChild(gorduraTd);
-pacienteTr.appendChild(imcTd);
 
 return pacienteTr;
 
+}
+function criarTd(dado, classe){
+    const td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add("classe");
+    return td;
 }
